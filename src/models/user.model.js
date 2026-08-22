@@ -11,7 +11,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: [true, "Email already exits"],
   },
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
-const userModel = mongoose.model("users", userSchema);
-module.exports = userModel;
+module.exports = mongoose.model("User", userSchema);
