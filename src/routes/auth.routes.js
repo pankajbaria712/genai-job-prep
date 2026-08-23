@@ -17,4 +17,11 @@ authRouter.post("/register", authController.registerUserController);
  */
 authRouter.post("/login", authController.loginUserController);
 
+/**
+ *  @route GET /api/auth/register
+ *  @description Clear the token from Cookie and backlist the token
+ *  @access Public
+ */
+authRouter.get("/logout", authController.logoutUserController);
+
 module.exports = authRouter;
