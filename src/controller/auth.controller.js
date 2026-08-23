@@ -108,7 +108,7 @@ async function loginUserController(req, res) {
 /**
  * @name logoutUserController
  * @description Logout the user and blacklist the token
- * @access Public
+ * @access Private
  */
 
 async function logoutUserController(req, res) {
@@ -124,8 +124,28 @@ async function logoutUserController(req, res) {
   });
 }
 
+/**
+ * @name getMeController
+ * @description get the loggedIn user detailed.
+ * @access Private
+ */
+
+async function getMeController(req, res) {
+  const user = await userModel.findById(req.user.id);
+
+  res.status(200).json({
+    message: "User Details Fetched Successfully",
+    user: {
+      id: user._id,
+      username: user.username,
+      email: user.email,
+    },
+  });
+}
+
 module.exports = {
   registerUserController,
   loginUserController,
   logoutUserController,
+  getMeController,
 };
