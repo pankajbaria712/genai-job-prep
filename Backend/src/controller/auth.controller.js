@@ -52,7 +52,12 @@ async function registerUserController(req, res) {
   );
 
   /* ## Final Response with tokan and status code ## */
-  res.cookie("token", token);
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+  });
+
   res.status(201).json({
     message: "User Registered successfully",
     user: {
@@ -94,7 +99,12 @@ async function loginUserController(req, res) {
     { expiresIn: "1D" },
   );
 
-  res.cookie("token", token);
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+  });
+
   res.status(200).json({
     message: "User LoggedIn Successfully",
     user: {

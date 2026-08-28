@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/pankajbaria712/genai-job-prep#readme",
   "dependencies": {
+    "@google/genai": "^2.19.0",
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.4.2",
