@@ -1,5 +1,7 @@
 import React from 'react';
-import '../styles/home.scss';
+import '../styles/interviewform.scss';
+import Navbar from '../../../Navbar/Navbar';
+import Footer from '../../../Footer/Footer';
 
 /**
  * UI Layer Component - Interview Plan Page
@@ -33,7 +35,9 @@ const InterviewPlanUI = ({
     selectedProfileType = null,
 }) => {
     return (
-        <main className="interview-plan-page">
+        <>
+            <Navbar />
+            <main className="interview-plan-page">
             <div className="plan-panel">
                 {/* Header Section */}
                 <header className="panel-header">
@@ -144,8 +148,9 @@ const InterviewPlanUI = ({
                     </button>
                 </div>
             </div>
-
-        </main>
+            </main>
+            <Footer />
+        </>
     );
 };
 

@@ -5,7 +5,6 @@ import { useAuth } from "../hooks/useAuth";
 
 const Login = () => {
   const navigate = useNavigate();
-
   const { loading, handleLogin } = useAuth();
 
   const [email, setEmail] = useState("");
@@ -20,48 +19,65 @@ const Login = () => {
   if (loading) {
     return (
       <main>
-        <h1>Loading.....</h1>
+        <div className="auth-wrapper">
+          <div className="form-container">
+            <h1>Loading...</h1>
+          </div>
+        </div>
       </main>
     );
   }
 
   return (
     <main>
-      <div className="form-container">
-        <h1>Login</h1>
+        <div className="auth-wrapper">
+          <div className="form-container">
+            <div>
+              <h1>Welcome <span>Back</span></h1>
+              <p className="subtitle">
+                Sign in to your account to access your personalized interview preparation
+              </p>
+            </div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="email">Email</label>
-            <input
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-            />
+            <form onSubmit={handleSubmit}>
+              <div className="input-group">
+                <label htmlFor="email">Email Address</label>
+                <input
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="password">Password</label>
+                <input
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <button type="submit" className="button primary-button">
+                Sign In
+              </button>
+            </form>
+
+            <div className="auth-footer">
+              <p>Don't have an account?</p>
+              <Link to={"/register"}>Create one now</Link>
+            </div>
           </div>
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Enter your password"
-            />
-          </div>
-          <button className="button primary-button">Login</button>
-        </form>
-        <p>
-          Don't have an account <Link to={"/register"}>Register</Link>
-        </p>
-      </div>
-    </main>
+        </div>
+      </main>
   );
 };
 

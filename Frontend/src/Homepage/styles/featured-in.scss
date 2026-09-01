@@ -1,0 +1,109 @@
+// Featured In Section Styles
+$accent-pink: #ff4d7d;
+$text-light: #edf3f9;
+$text-muted: #a9b0ba;
+$border-light: rgba(255, 255, 255, 0.08);
+$transition: all 0.3s ease;
+
+.featured-in-section {
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid $border-light;
+    border-bottom: 1px solid $border-light;
+}
+
+.featured-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.featured-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: $text-muted;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.company-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid $border-light;
+    border-radius: 0.8rem;
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    transition: $transition;
+
+    .company-icon {
+        font-size: 1.5rem;
+    }
+
+    .company-name {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: $text-light;
+    }
+
+    &:hover {
+        background: rgba(255, 77, 125, 0.1);
+        border-color: rgba(255, 77, 125, 0.3);
+        transform: translateY(-3px);
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .featured-in-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .companies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .company-logo {
+        padding: 0.75rem;
+        flex-direction: column;
+        text-align: center;
+
+        .company-name {
+            font-size: 0.85rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-in-section {
+        padding: 2rem 1rem;
+    }
+
+    .companies-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .company-logo {
+        padding: 0.5rem;
+
+        .company-icon {
+            font-size: 1.2rem;
+        }
+
+        .company-name {
+            font-size: 0.75rem;
+        }
+    }
+}

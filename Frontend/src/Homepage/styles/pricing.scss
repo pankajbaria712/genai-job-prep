@@ -1,0 +1,340 @@
+// Pricing Section Styles
+$accent-pink: #ff4d7d;
+$accent-blue: #4da3ff;
+$text-light: #edf3f9;
+$text-muted: #a9b0ba;
+$border-light: rgba(255, 255, 255, 0.08);
+$transition: all 0.3s ease;
+
+.pricing-section {
+    padding: 5rem 2rem;
+}
+
+.pricing-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 900;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.02em;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: $text-muted;
+    }
+}
+
+// Billing Toggle
+.billing-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    background: rgba(89, 99, 110, 0.15);
+    border: 1px solid $border-light;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        background: transparent;
+        color: $text-muted;
+        font-weight: 700;
+        cursor: pointer;
+        border-radius: 0.8rem;
+        transition: $transition;
+        font-family: inherit;
+        position: relative;
+        font-size: 0.95rem;
+
+        &.active {
+            background: rgba(255, 77, 125, 0.15);
+            color: $accent-pink;
+            border: 1px solid rgba(255, 77, 125, 0.3);
+        }
+
+        &:hover:not(.active) {
+            color: $text-light;
+        }
+
+        .save-badge {
+            display: inline-block;
+            background: rgba(255, 77, 125, 0.2);
+            color: $accent-pink;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.4rem;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+            font-weight: 800;
+        }
+    }
+}
+
+// Pricing Cards Grid
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.pricing-card {
+    background: rgba(89, 99, 110, 0.15);
+    border: 2px solid $border-light;
+    border-radius: 1.2rem;
+    padding: 2.5rem;
+    position: relative;
+    transition: $transition;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeInUp 0.6s ease backwards;
+
+    &:nth-child(1) {
+        animation-delay: 0s;
+    }
+    &:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+    &:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+
+    &:hover {
+        transform: translateY(-10px);
+        border-color: rgba(255, 77, 125, 0.3);
+
+        &.highlighted {
+            box-shadow: 0 0 40px rgba(255, 77, 125, 0.3);
+        }
+    }
+
+    &.highlighted {
+        border: 2px solid $accent-pink;
+        background: rgba(255, 77, 125, 0.08);
+        transform: scale(1.02);
+    }
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, $accent-pink, #ef3c75);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(255, 77, 125, 0.3);
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $text-light;
+}
+
+.plan-description {
+    font-size: 0.9rem;
+    color: $text-muted;
+}
+
+.plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+
+    .price {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: $text-light;
+    }
+
+    .period {
+        color: $text-muted;
+        font-size: 0.9rem;
+    }
+}
+
+.cta-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.8rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: $transition;
+    font-family: inherit;
+    width: 100%;
+
+    &.primary {
+        background: linear-gradient(135deg, $accent-pink, #ef3c75);
+        color: white;
+        box-shadow: 0 10px 22px rgba(255, 77, 125, 0.28);
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(255, 77, 125, 0.35);
+        }
+    }
+
+    &.secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: $text-light;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+    padding-top: 1rem;
+    border-top: 1px solid $border-light;
+}
+
+.feature {
+    font-size: 0.9rem;
+    color: $text-muted;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    &:before {
+        content: attr(data-icon);
+    }
+}
+
+// Animations
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Responsive
+@media (max-width: 1024px) {
+    .pricing-section {
+        padding: 4rem 2rem;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card {
+        &.highlighted {
+            transform: scale(1);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .billing-toggle {
+        width: 100%;
+
+        button {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            font-size: 0.85rem;
+        }
+    }
+
+    .pricing-card {
+        padding: 1.75rem;
+
+        .plan-name {
+            font-size: 1.3rem;
+        }
+    }
+
+    .plan-price .price {
+        font-size: 2rem;
+    }
+
+    .features-list {
+        gap: 0.5rem;
+    }
+
+    .feature {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-section {
+        padding: 2rem 1rem;
+    }
+
+    .billing-toggle {
+        flex-direction: column;
+        gap: 0.75rem;
+
+        button {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    .pricing-card {
+        padding: 1.5rem;
+        gap: 1rem;
+
+        .plan-name {
+            font-size: 1.1rem;
+        }
+
+        .plan-description {
+            font-size: 0.8rem;
+        }
+    }
+
+    .plan-price .price {
+        font-size: 1.8rem;
+    }
+
+    .cta-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    .features-list {
+        gap: 0.4rem;
+    }
+
+    .feature {
+        font-size: 0.8rem;
+    }
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import InterviewPlanUI from './Home';
+import InterviewPlanUI from './interviewform';
 
 /**
  * Container Component - Interview Plan Page
