@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import InterviewPlanUI from './interviewform';
 
 /**
@@ -9,6 +10,7 @@ import InterviewPlanUI from './interviewform';
  * Later, this will connect to hooks, API services, and state management.
  */
 const InterviewPlanContainer = () => {
+    const navigate = useNavigate();
     const [jobDescription, setJobDescription] = useState('');
     const [selfDescription, setSelfDescription] = useState('');
     const [resumeFile, setResumeFile] = useState(null);
@@ -54,19 +56,12 @@ const InterviewPlanContainer = () => {
             return;
         }
 
-        // TODO: Connect to API layer when ready
         setIsLoading(true);
-        console.log('Generating interview strategy with:', {
-            jobDescription,
-            selfDescription,
-            resumeFile,
-        });
 
-        // Simulate API call
         setTimeout(() => {
             setIsLoading(false);
-            alert('Interview strategy generation initiated!');
-        }, 2000);
+            navigate('/report');
+        }, 800);
     };
 
     return (

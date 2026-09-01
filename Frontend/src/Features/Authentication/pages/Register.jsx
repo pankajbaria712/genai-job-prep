@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router";
 import { useAuth } from "../hooks/useAuth";
 import "../auth.form.scss";
-
+import LoadingScreen from "../../Loading/LoadingScreen";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -22,13 +22,10 @@ const Register = () => {
 
   if (loading) {
     return (
-      <main>
-        <div className="auth-wrapper">
-          <div className="form-container">
-            <h1>Loading...</h1>
-          </div>
-        </div>
-      </main>
+      <LoadingScreen
+        title="Creating your account"
+        message="Setting up your profile and preparing your interview experience..."
+      />
     );
   }
 

@@ -6,6 +6,8 @@ import Homepage from "./Homepage/home";
 import InterviewForm from "./Features/interview/pages/Home.container";
 import Features from "./FeaturePage/Features";
 import About from "./aboutPage/About";
+import NotFoundPage from "./Features/404Page/NotFoundPage";
+import InterviewReportPage from "./Features/Report/page/InterviewReportPage";
 
 export const router = createBrowserRouter([
   {
@@ -31,5 +33,17 @@ export const router = createBrowserRouter([
   {
     path: "/interview",
     element: <Protected><InterviewForm /></Protected>,
+  },
+  {
+    path: "/report",
+    element: <Protected><InterviewReportPage /></Protected>,
+  },
+  {
+    path: "/interview/report",
+    element: <Protected><InterviewReportPage /></Protected>,
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);

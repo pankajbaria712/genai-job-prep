@@ -1,15 +1,17 @@
 import React from "react";
 import { useAuth } from "../hooks/useAuth";
 import { Navigate } from "react-router";
+import LoadingScreen from "../../Loading/LoadingScreen";
 
 const Protected = ({ children }) => {
   const { loading, user } = useAuth();
 
   if (loading) {
     return (
-      <main>
-        <h1>Loading....</h1>
-      </main>
+      <LoadingScreen
+        title="Verifying access"
+        message="Checking your authentication status before opening the interview dashboard..."
+      />
     );
   }
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router";
 import "../auth.form.scss";
 import { useAuth } from "../hooks/useAuth";
+import LoadingScreen from "../../Loading/LoadingScreen";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,13 +19,10 @@ const Login = () => {
 
   if (loading) {
     return (
-      <main>
-        <div className="auth-wrapper">
-          <div className="form-container">
-            <h1>Loading...</h1>
-          </div>
-        </div>
-      </main>
+      <LoadingScreen
+        title="Signing you in"
+        message="Preparing your account and landing you to your dashboard..."
+      />
     );
   }
 
