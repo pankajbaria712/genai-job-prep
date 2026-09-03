@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router";
 import Login from "./Features/Authentication/pages/Login";
 import Register from "./Features/Authentication/pages/Register";
+import Profile from "./Features/Authentication/pages/Profile";
 import Protected from "./Features/Authentication/components/protected";
 import Homepage from "./Homepage/home";
 import InterviewForm from "./Features/interview/pages/Home.container";
 import Features from "./FeaturePage/Features";
 import About from "./aboutPage/About";
 import NotFoundPage from "./Features/404Page/NotFoundPage";
-import InterviewReportPage from "./Features/Report/page/InterviewReportPage";
+import InterviewReportContainer from "./Features/Report/page/InterviewReport.container";
+import ReportsContainer from "./Features/Report/page/Reports.container";
 
 export const router = createBrowserRouter([
   {
@@ -31,16 +33,28 @@ export const router = createBrowserRouter([
     element: <Register />,
   },
   {
+    path: "/profile",
+    element: <Protected><Profile /></Protected>,
+  },
+  {
     path: "/interview",
     element: <Protected><InterviewForm /></Protected>,
   },
   {
     path: "/report",
-    element: <Protected><InterviewReportPage /></Protected>,
+    element: <Protected><InterviewReportContainer /></Protected>,
+  },
+  {
+    path: "/reports",
+    element: <Protected><ReportsContainer /></Protected>,
   },
   {
     path: "/interview/report",
-    element: <Protected><InterviewReportPage /></Protected>,
+    element: <Protected><InterviewReportContainer /></Protected>,
+  },
+  {
+    path: "/interview/report/:reportId",
+    element: <Protected><InterviewReportContainer /></Protected>,
   },
   {
     path: "*",

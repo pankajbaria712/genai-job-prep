@@ -1,7 +1,7 @@
-import React from 'react';
-import '../styles/interviewform.scss';
+import '../styles/interviewForm.scss';
 import Navbar from '../../../Navbar/Navbar';
 import Footer from '../../../Footer/Footer';
+
 
 /**
  * UI Layer Component - Interview Plan Page
@@ -32,8 +32,8 @@ const InterviewPlanUI = ({
     onResumeChange = () => {},
     isLoading = false,
     onGenerateStrategy = () => {},
-    selectedProfileType = null,
 }) => {
+
     return (
         <>
             <Navbar />
@@ -63,10 +63,10 @@ const InterviewPlanUI = ({
                         </div>
 
                         <textarea
-                            name="jobDescription"
-                            id="jobDescription"
                             value={jobDescription}
                             onChange={onJobDescriptionChange}
+                            name="jobDescription"
+                            id="jobDescription"
                             placeholder="Paste the full job description here... e.g. 'Senior Frontend Engineer at Google requires proficiency in React, TypeScript, and large-scale system design...'"
                             maxLength={5000}
                         />
@@ -93,7 +93,7 @@ const InterviewPlanUI = ({
                                 <span className="upload-text">
                                     {resumeFile ? `📄 ${resumeFile.name}` : 'Click to upload or drag & drop'}
                                 </span>
-                                <small>{resumeFile ? 'File selected' : 'PDF or DOCX (Max 5MB)'}</small>
+                                <small>{resumeFile ? 'File selected' : 'PDF (Max 5MB)'}</small>
                             </label>
 
                             <input
@@ -114,10 +114,11 @@ const InterviewPlanUI = ({
                                     Quick Self-Description
                                 </label>
                                 <textarea
-                                    name="selfDescription"
-                                    id="selfDescription"
                                     value={selfDescription}
                                     onChange={onSelfDescriptionChange}
+                                    name="selfDescription"
+                                    id="selfDescription"
+
                                     placeholder="Briefly describe your experience, key skills, and years of experience if you don't have a resume handy..."
                                 />
                             </div>

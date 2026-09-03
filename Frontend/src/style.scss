@@ -10,6 +10,8 @@ html,
 body,
 #root {
   width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
   background-color: rgb(32, 33, 33);
   color: aliceblue;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

@@ -6,6 +6,8 @@ import {
   AuthProvider,
 } from "./Features/Authentication/auth.context.jsx";
 import LoadingScreen from "./Features/Loading/LoadingScreen";
+import { InterviewProvider } from "./Features/interview/interview.context.jsx";
+
 
 function AppContent() {
   const { loading } = useContext(AuthContext);
@@ -25,7 +27,9 @@ function AppContent() {
 function App() {
   return (
     <AuthProvider>
-      <AppContent />
+      <InterviewProvider>
+        <AppContent />
+      </InterviewProvider>
     </AuthProvider>
   );
 }

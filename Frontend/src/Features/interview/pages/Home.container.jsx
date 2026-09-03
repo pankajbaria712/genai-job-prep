@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import InterviewPlanUI from './interviewform';
+import { useInterview } from '../hooks/useInterview';
 
 /**
  * Container Component - Interview Plan Page
@@ -11,10 +12,10 @@ import InterviewPlanUI from './interviewform';
  */
 const InterviewPlanContainer = () => {
     const navigate = useNavigate();
+    const { loading, generateReport } = useInterview();
     const [jobDescription, setJobDescription] = useState('');
     const [selfDescription, setSelfDescription] = useState('');
     const [resumeFile, setResumeFile] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
 
     // Handle job description input change
     const handleJobDescriptionChange = (e) => {
@@ -56,12 +57,8 @@ const InterviewPlanContainer = () => {
             return;
         }
 
-        setIsLoading(true);
-
-        setTimeout(() => {
-            setIsLoading(false);
-            navigate('/report');
-        }, 800);
+        const report = await generateReport({ resumeFile, selfDescription, jobDescription });
+        navigate(`/interview/report/${report._id}`);
     };
 
     return (
@@ -73,7 +70,7 @@ const InterviewPlanContainer = () => {
             onSelfDescriptionChange={handleSelfDescriptionChange}
             resumeFile={resumeFile}
             onResumeChange={handleResumeChange}
-            isLoading={isLoading}
+            isLoading={loading}
             onGenerateStrategy={handleGenerateStrategy}
         />
     );

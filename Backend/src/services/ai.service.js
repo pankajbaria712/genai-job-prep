@@ -76,6 +76,7 @@ IMPORTANT:
 - If the candidate profile is limited, return the best 1-3 relevant entries instead of empty arrays.
 - Return ONLY valid JSON with this structure:
 {
+  "jobTitle": "Provide the job title from the job description",
   "matchScore": 0,
   "technicalQuestions": [
     { "question": "", "intention": "", "answer": "" }
@@ -135,6 +136,7 @@ IMPORTANT: Do not return empty arrays. Return at least one meaningful item for e
   }
 
   return {
+    JobTitle: String(parsed.jobTitle ?? "Interview Preparation"),
     matchScore: Number.isFinite(Number(parsed.matchScore)) ? Number(parsed.matchScore) : 0,
     technicalQuestions: normalizeQuestionArray(parsed.technicalQuestions),
     behavioralQuestions: normalizeQuestionArray(parsed.behavioralQuestions),

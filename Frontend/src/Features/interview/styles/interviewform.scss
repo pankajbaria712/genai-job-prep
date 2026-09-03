@@ -1,17 +1,18 @@
 .interview-plan-page {
-    height: 100vh;
+    min-height: 110vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 1.5rem;
+    padding: 4rem 1.5rem;
     background: #111922;
     color: #edf3f9;
     box-sizing: border-box;
-    overflow-y: auto;
+    overflow-x: clip;
+    overflow-y: visible;
 }
 
 .plan-panel {
-    width: min(1420px, 100%);
+    width: min(1420px, 80%);
 }
 
 .panel-header {
