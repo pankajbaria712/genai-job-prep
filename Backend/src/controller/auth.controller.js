@@ -52,10 +52,11 @@ async function registerUserController(req, res) {
   );
 
   /* ## Final Response with tokan and status code ## */
+  const isProduction = process.env.NODE_ENV === "production";
   res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
-    sameSite: "lax",
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
   });
 
   res.status(201).json({
@@ -99,10 +100,11 @@ async function loginUserController(req, res) {
     { expiresIn: "1D" },
   );
 
+  const isProduction = process.env.NODE_ENV === "production";
   res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
-    sameSite: "lax",
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
   });
 
   res.status(200).json({
