@@ -1,7 +1,8 @@
-import '../styles/interviewForm.scss';
+import React, { useState } from 'react';
 import Navbar from '../../../Navbar/Navbar';
 import Footer from '../../../Footer/Footer';
 
+import '../styles/interviewForm.scss'
 
 /**
  * UI Layer Component - Interview Plan Page
