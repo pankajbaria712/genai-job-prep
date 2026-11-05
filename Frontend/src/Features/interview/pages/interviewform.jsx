@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../../../Navbar/Navbar';
 import Footer from '../../../Footer/Footer';
 
-import '../styles/interviewForm.scss'
+import '../styles/interviewform.scss';
 
 /**
  * UI Layer Component - Interview Plan Page
