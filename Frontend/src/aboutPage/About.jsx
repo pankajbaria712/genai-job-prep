@@ -22,7 +22,7 @@ const About = () => {
             title: 'AI with Human Insight',
             description: 'Our platform combines advanced AI with practical interview strategies so people can perform at their best.'
         },
-        {
+        {  
             icon: '🔒',
             title: 'Privacy First',
             description: 'Your data and career information remain secure, protected, and never shared without consent.'
